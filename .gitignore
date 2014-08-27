@@ -4,6 +4,9 @@ __pycache__/
 
 # C extensions
 *.so
+*.tsv
+*.json
+times_tagger/ruleSet
 
 # Distribution / packaging
 .Python

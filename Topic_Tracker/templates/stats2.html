@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <style>
+    .chart div {
+      font: 10px sans-serif;
+      background-color: steelblue;
+      text-align: right;
+      padding: 20px;
+      margin: 5px;
+      color: black;
+    }
+
+    .label div {
+      height:3em;
+      line-height:3em;
+      padding-right:1em;
+      margin-bottom:2px;
+      float:right;
+      width:10em;
+      text-align:right;
+    }
+
+   </style>
+    <div class="chart"></div>
+  </head>
+  <body>
+    <h1 align = "center">Topic Stats</h1>
+    <script>
+    d3.json("/data", function(error, d){
+      if (error){
+        console.log("Error: ", error);
+      } else {
+        console.log("Data:", d);
+      }
+      d3.select('.chart').selectAll('div').data(d).enter().append("div")
+        .attr('class','chart')
+        .style('width', function(d){return d.prob*100 + "px";}).append('div')
+        .text(function(d) {return Math.round(d.prob*100);});
+
+      d3.select('.chart').append('div').attr('class','chart').selectAll('div.line')
+        .data(d).enter().append('class','line');
+
+      d3.selectAll('div.line').append('div').attr('class','label')
+        .text(function(d) {return d.words;});
+
+      d3.selectAll('div.line').append('div').attr('class', 'bar')
+        .style('width',  function(d) {return d.probs*100 + "px"})
+        .text(function(d) {return Math.round(d.probs*100)});
+    }
+  );
+    </script>
+ 
+    
+  </body>
+</html>
+<!--
+data should like:
+[
+  {"count":0.4},
+  {"count":0.8},
+  {"count":0.2}
+]
+-->

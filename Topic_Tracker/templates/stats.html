@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <style>
+    .chart div {
+      font: 10px sans-serif;
+      background-color: steelblue;
+      text-align: right;
+      padding: 10px;
+      margin: 2px;
+      color: black;
+    }
+
+   </style>
+    <div class="chart"></div>
+  </head>
+  <body>
+    <h1 align = "center">Topic Stats</h1>
+    <script>
+    d3.json("/data", function(error, d){
+      if (error){
+        console.log("Error: ", error);
+      } else {
+        console.log("Data:", d);
+      }
+      d3.select('.chart').selectAll('div').data(d).enter().append("div")
+        .attr('class','chart')
+        .style('width', function(d){return d.prob*1000 + "px";}).append('div')
+        .text(function(d) {return d.words;});
+    }
+  );
+    </script>
+ 
+    
+  </body>
+</html>
+<!--
+data should like:
+[
+  {"count":0.4},
+  {"count":0.8},
+  {"count":0.2}
+]
+-->

@@ -1,0 +1,102 @@
+-----------------------------------BASH-----------------------------------
+
+Colour to bright blue
+PS1="\[\033[1;34m\][\$(date +%H%M)][\u@\h:\w]$\[\033[0m\] " 
+
+Colour to light red
+PS1 = "\[\033[1;31m\]\u:\w\$\[\033[0m\] "
+
+Colour to green
+PS1='\[\e[1;32m\][\u@\h \W]\$\[\e[0m\] '
+
+
+
+-----------------------------------VIM-----------------------------------
+ctrl-s : stops output on the screen
+ctrl-q : make it work again
+
+Cut and paste:
+
+Position the cursor where you want to begin cutting.
+Press v (or upper case V if you want to cut whole lines).
+Move the cursor to the end of what you want to cut.
+Press d to cut or y to copy.
+Move to where you would like to paste.
+Press P to paste before the cursor, or p to paste after.
+
+-----------------------------------Redis---------------------------------
+
+SELECT #db  [select database number]
+databases are 16 in number but can be changed
+
+
+
+———————————————————————————TMUX------------------------------------------	
+	tmux -a -t # [attach a session numbered #]
+	tmux kill-session -t #
+	tmux [created a new session ]
+	tmux new -s name [creates a new session with name "name"]
+	tmux ls [gives out list of all tmux sessions]
+
+	Inside the session: {everything to do with sessions has to be after pressing ctrl + b}
+
+add these lines to your .tmux.conf
+	# remap prefix to Control + a
+	set -g prefix C-a
+	unbind C-b
+	bind C-a send-prefix
+	
+	# force a reload of the config file
+	unbind r
+	bind r source-file ~/.tmux.conf
+
+[To reload the file: tmux source-file ~/.tmux.conf]
+
+[prefix is specific to .tmux.conf files] [I like to use 'ctrl+a' as easy to use prefix. ~/.tmux.conf is where your conf file lies. ]
+
+[prefix]	ctrl+b+ 
+
+	----Sessions
+		:new<CR> [press enter once in the command prompt to start a new session]
+		s [ lists sessions : can choose from hte lists just by arrow keys]
+		$ [ name session from within]
+
+	------------Windows: Inside sessions you can have Windows:
+				c [new window]
+				, [name this window]
+				w [list window] 
+				& [kill window]
+
+	--------------------Panes: Inside windows you can have panes (i.e. split window)
+						% [horizontal split]
+						" [vertical split]
+						o [change the cursor to different pane]
+						x [kill pane]
+						<SPACE> [toggle the layout]
+						
+						C-a {          [move the current pane to the previous position]
+						C-a }          [move the current pane to the next position]
+						
+						C-a M-up, C-a M-down, C-a M-left, C-a M-right
+						               resize by 5 rows/columns
+						C-a C-up, C-a C-down, C-a C-left, C-a C-right
+						               resize by 1 row/column
+						
+						
+						
+						d [detach the session or pane or window]
+						: [prompt] [colored bar under every session]
+						? [list shortcuts]
+						t [big clock]
+
+tmux new-window  [ it directl creates a new tab ] [shortcut : prefix + c]
+ >>>>>>>>>>>>> If you want to copy something from tmux to mac clipboard: press option and select things with mouse and use normal operations to copy adn paste
+
+
+
+	------------------------------------------VIM------------------------------------------	
+
+type : to get to the prompt
+--> set nu  [to get the numbers in editor ]
+
+
