@@ -25,4 +25,4 @@ After talking to people, I found that there are libraries like goose(https://git
 
 7. usefulScripts : It contains all the scripts which were helpful in preprocessing articles, querying mongoDB or experimenting with LDA. 
 
-app.py script combines all the services. It might not work because of relocation of other scripts.
+*app.py script combines all the services. It might not work because of relocation of other scripts.*
