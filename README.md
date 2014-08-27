@@ -3,7 +3,7 @@ linguo
 
 ![linguo robot](http://4.bp.blogspot.com/_W2b7qR0wkBs/SdPz9CyWMOI/AAAAAAAAANo/M0znxgvTURI/s320/linguo1.jpg)
 
-lingua is a set of services that provide NLP facilities
+linguo is a set of services that provide NLP facilities
 
 This repository contains various tools that one might encounter while dealing with text data. These are also provided in shape of services.
 
